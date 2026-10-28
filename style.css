@@ -1,0 +1,8 @@
+div .cell{
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    gap: 10px;
+}
+.cell{
+    background-color: black;
+}
