@@ -1,8 +1,41 @@
-div .cell{
-    display: grid;
-    grid-template-columns: repeat(5, 200px);
-    gap: 10px;
+body {
+    background-color: #751313;
+    margin: 0;
 }
-.cell{
-    background-color: black;
+
+#panel-config {
+    background-color: #960303;
+    border: 1px solid #751313;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #ff6a6a;
+    width: 15%;
+    min-width: 220px;
+}
+
+.tablero {
+    margin: 2.5vh auto; 
+    background-color: transparent;
+    gap: 2px;
+    --size: min(calc(90vw / var(--m)), calc(90vh / var(--n)));
+    display: grid;
+    grid-template-columns: repeat(var(--m), var(--size));
+    grid-template-rows: repeat(var(--n), var(--size));
+    width: max-content;
+
+}
+
+.cell {
+    aspect-ratio: 1;
+    background-color: #a10606;
+}
+
+.oculto {
+    display: none;
+}
+
+.config2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

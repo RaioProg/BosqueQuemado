@@ -7,19 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <div id="panel-config">
+    <div id="panel-config">
+        <div class="config2">
             <p>Anchura del bosque M: </p>
             <input type="text" placeholder="M (Anchura del bosque)" id="spin_anchura_bosque">
             <p>Altura del bosque N: </p>
-            <input type="text" placeholder="N (Altura del bosque)">
+            <input type="text" placeholder="N (Altura del bosque)" id="spin_altura_bosque">
             <p>Probabilidad arbol P:</p>
-            <input type="text" placeholder="P (Probabilidad de Arbol)">
+            <input type="text" placeholder="P (Probabilidad de Arbol)" id="spin_probabilidad_arbol">
             <p>Probabilidad incendio Q:</p>
-            <input type="text" placeholder="Q (Probabilidad de Incendio)">
+            <input type="text" placeholder="Q (Probabilidad de Incendio)" id="spin_probabilidad_incendio">
             <button type="submit" id="simulacion">Iniciar Simulación</button>
         </div>
-    </main>
+    </div>
+    <div id="tablero" class="oculto"></div>
     <script src="action.js"></script>
 </body>
 </html>
