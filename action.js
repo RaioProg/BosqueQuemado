@@ -47,9 +47,6 @@ function prepararTablero() {
     for (let i = 0; i < M; i++) 
         for (let j = 0; j < N; j++) 
             bosque[i][j] = 1;
-       
-    config.classList.toggle('oculto');
-    tablero.classList.toggle('oculto');
 
     pintarTablero();
 };
