@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TierroQuemada</title>
     <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900" rel="stylesheet">
 </head>
 <body>
-    <div id="panel-config">
+    <div id="panel-config" class="outfit">
         <div class="config2">
-            <p>Anchura del bosque M: </p>
-            <input type="text" placeholder="M (Anchura del bosque)" id="spin_anchura_bosque">
-            <p>Altura del bosque N: </p>
-            <input type="text" placeholder="N (Altura del bosque)" id="spin_altura_bosque">
-            <p>Probabilidad arbol P:</p>
-            <input type="text" placeholder="P (Probabilidad de Arbol)" id="spin_probabilidad_arbol">
-            <p>Probabilidad incendio Q:</p>
-            <input type="text" placeholder="Q (Probabilidad de Incendio)" id="spin_probabilidad_incendio">
+            <label>- Anchura del bosque M -</label>
+            <input type="number" placeholder="M (Anchura del bosque)" id="spin_anchura_bosque" class="input" max="20" min="0">
+            <label>- Altura del bosque N -</label>
+            <input type="number" placeholder="N (Altura del bosque)" id="spin_altura_bosque" class="input" max="20" min="0">
+            <label>- Probabilidad arbol P -</label>
+            <input type="number" placeholder="P (Probabilidad de Arbol)" id="spin_probabilidad_arbol" class="input" step="0.01" max="1" min="0">
+            <label>- Probabilidad incendio Q -</label>
+            <input type="number" placeholder="Q (Probabilidad de Incendio)" id="spin_probabilidad_incendio" class="input" step="0.01" max="1" min="0">
             <button type="submit" id="simulacion">Iniciar Simulación</button>
         </div>
     </div>

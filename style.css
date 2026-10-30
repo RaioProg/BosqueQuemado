@@ -1,6 +1,18 @@
 body {
-    background-color: #751313;
+    background-image: url(fondo.png);
+    background-repeat: no-repeat;
+    width: 100vw;
     margin: 0;
+}
+p{
+    margin: 0;
+}
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 #panel-config {
@@ -10,6 +22,10 @@ body {
     box-shadow: 0px 0px 10px #ff6a6a;
     width: 15%;
     min-width: 220px;
+    color: #ffffff;
+}
+.input{
+    width: 60%;
 }
 
 .tablero {
@@ -21,7 +37,6 @@ body {
     grid-template-columns: repeat(var(--m), var(--size));
     grid-template-rows: repeat(var(--n), var(--size));
     width: max-content;
-
 }
 
 .cell {
@@ -38,4 +53,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 15px;
+    margin: 20px;
 }
