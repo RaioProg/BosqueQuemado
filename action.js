@@ -39,7 +39,7 @@ function prepararTablero() {
     alert('Introduce dimensiones válidas');
     return;
     }
-
+    
     let bosque = new Array(M);
     for (let i = 0; i < M; i++) 
         bosque[i] = new Array(N);
@@ -50,7 +50,7 @@ function prepararTablero() {
        
     config.classList.toggle('oculto');
     tablero.classList.toggle('oculto');
-
+    
     pintarTablero();
 };
 
