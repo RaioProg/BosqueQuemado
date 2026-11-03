@@ -100,7 +100,7 @@ body {
     margin-right: 20vw;
     background-color: transparent;
     gap: 4px;
-    --size: min(calc(90vw / var(--m)), calc(90vh / var(--n)));
+    --size: min(calc(70vw / var(--m)), calc(70vh / var(--n)));
     grid-template-rows: repeat(var(--n), var(--size));
     width: max-content;
 }
@@ -108,6 +108,12 @@ body {
 .cell {
     aspect-ratio: 1;
     background-color: var(--liquen);
+}
+.cell.arbol {
+    background-color: var(--musgo);
+}
+.cell.fuego {
+    background-color: var(--brasa);
 }
 #panel-accion {
     height: 100%;
