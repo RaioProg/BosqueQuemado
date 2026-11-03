@@ -5,6 +5,7 @@ const contenedorQ = document.getElementById('spin_probabilidad_incendio');
 const contenedorBoton = document.getElementById('simulacion');
 const config = document.getElementById('panel-config');
 const tablero = document.getElementById('tablero');
+const panelAccion = document.getElementById('panel-accion');
 
 
 let M
@@ -39,7 +40,11 @@ function prepararTablero() {
     alert('Introduce dimensiones válidas');
     return;
     }
-    
+    if (M > 10 || N > 10) {
+        alert('Las dimensiones del bosque deben ser menores o iguales a 10');
+        return;
+    }
+
     let bosque = new Array(M);
     for (let i = 0; i < M; i++) 
         bosque[i] = new Array(N);
@@ -50,6 +55,9 @@ function prepararTablero() {
        
     config.classList.toggle('oculto');
     tablero.classList.toggle('oculto');
+    panelAccion.classList.toggle('oculto');
+
+    panelAccion.querySelector('.probabilidad').innerHTML = `<p>Probabilidad de propagación Q: ${Q}</p><p>Probabilidad de aparición de un árbol P: ${P}</p>`;
     
     pintarTablero();
 };

@@ -10,14 +10,24 @@
     <div id="panel-config">
         <div class="config2">
             <p>Anchura del bosque M: </p>
-            <input type="text" placeholder="M (Anchura del bosque)" id="spin_anchura_bosque">
+            <input type="text" placeholder="M (Anchura del bosque)" id="spin_anchura_bosque" maxlength="10">
             <p>Altura del bosque N: </p>
-            <input type="text" placeholder="N (Altura del bosque)" id="spin_altura_bosque">
+            <input type="text" placeholder="N (Altura del bosque)" id="spin_altura_bosque" maxlength="10">
             <p>Probabilidad arbol P:</p>
             <input type="text" placeholder="P (Probabilidad de Arbol)" id="spin_probabilidad_arbol">
             <p>Probabilidad incendio Q:</p>
             <input type="text" placeholder="Q (Probabilidad de Incendio)" id="spin_probabilidad_incendio">
             <button type="submit" id="simulacion">Iniciar Simulación</button>
+        </div>
+    </div>
+    <div id="panel-accion" class="oculto">
+        <div class="probabilidad">
+            <p>Probabilidad de propagación Q:</p>
+            <p>Probabilidad de aparición de un árbol P:</p>
+        </div>
+        <div class="accion">
+            <button type="submit" id="accion">Siguiente Iteración</button>
+            <button type="submit" id="reiniciar">Reiniciar Simulación</button>
         </div>
     </div>
     <div id="tablero" class="oculto"></div>

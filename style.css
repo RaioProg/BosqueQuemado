@@ -74,7 +74,7 @@ body {
 .config2 input:nth-of-type(4) { grid-area: 4 / 2; }
 
 
-.config2 button {
+.config2 button, #accion, #reiniciar {
     grid-area: 5 / 1 / 6 / 3;
     margin-top: 26px;
     padding: 14px;
@@ -97,11 +97,10 @@ body {
 
 .tablero {
     margin: 2.5vh auto;
+    margin-right: 20vw;
     background-color: transparent;
     gap: 4px;
     --size: min(calc(90vw / var(--m)), calc(90vh / var(--n)));
-    display: grid;
-    grid-template-columns: repeat(var(--m), var(--size));
     grid-template-rows: repeat(var(--n), var(--size));
     width: max-content;
 }
@@ -109,6 +108,21 @@ body {
 .cell {
     aspect-ratio: 1;
     background-color: var(--liquen);
+}
+#panel-accion {
+    height: 100%;
+    width: 90%;
+    max-width: 400px;
+    margin: 16px 5vw;
+    padding: 28px 28px 32px;
+    background: var(--musgo);
+    border: 1px solid var(--helecho);
+    border-top: 6px solid var(--brasa);
+    border-radius: 14px;
+    box-shadow: 0px 0px 10px #326948;
+    color: var(--liquen);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+
 }
 
 .oculto {
