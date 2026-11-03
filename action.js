@@ -65,12 +65,13 @@ function prepararTablero() {
     panelAccion.querySelector('.probabilidad').innerHTML = `<p>Probabilidad de propagación Q: ${Q}%</p><p>Probabilidad de aparición de un árbol P: ${P}%</p>`;
     
     pintarTablero();
+    simular1vez();
 };
 
 function simular1vez() {
     
     for (let i = 0; i < N; i++) {
-        bosque[i] = new Array(M).fill(infertil).className = 'cell infertil';
+        bosque[i] = new Array(M).fill(infertil);
     }
     bosqueDom = tablero.querySelector('.tablero');
     for (let i = 0; i < N; i++) {
