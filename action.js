@@ -13,7 +13,7 @@ const fertil = 1;
 const arbol = 2;
 const fuego = 3;
 
-
+let bosquefuturo = [];
 let bosque = [];
 let bosqueDom;
 let M
@@ -22,7 +22,7 @@ let P
 let Q
 
 contenedorBoton.addEventListener('click', prepararTablero);
-actionBtn.addEventListener('click', simularQuemada);
+actionBtn.addEventListener('click', probabilidad);
 resetBtn.addEventListener('click', simular1vez);
 
 function pintarTablero() {
@@ -65,11 +65,34 @@ function prepararTablero() {
     panelAccion.querySelector('.probabilidad').innerHTML = `<p>Probabilidad de propagación Q: ${Q}%</p><p>Probabilidad de aparición de un árbol P: ${P}%</p>`;
     
     pintarTablero();
-    simular1vez();
+    probabilidad();
 };
 
+function probabilidad() {
+    for (let i = 0; i < N; i++) {
+        for (let j = 0; j < M; j++) {
+            if (i + 1 < M && bosque[i][j] === fuego && bosque[i+1][j] === arbol ) {
+                    bosque[i+1][j] = fuego;
+                    bosqueDom.children[(i+1) * M + j].className = 'cell fuego';
+            }
+            if (i - 1 >= 0 && bosque[i][j] === fuego && bosque[i-1][j] === arbol ) {
+                    bosque[i-1][j] = fuego;
+                    bosqueDom.children[(i-1) * M + j].className = 'cell fuego';
+            }
+            if (j + 1 < N && bosque[i][j] === fuego && bosque[i][j+1] === arbol ) {
+                    bosque[i][j+1] = fuego;
+                    bosqueDom.children[i * M + (j+1)].className = 'cell fuego';
+            }
+            if (j - 1 >= 0 && bosque[i][j] === fuego && bosque[i][j-1] === arbol ) {
+                    bosque[i][j-1] = fuego;
+                    bosqueDom.children[i * M + (j-1)].className = 'cell fuego';
+            }
+            if (bosque[i][j] === infertil){bosque[i][j] = fertil; bosqueDom.children[i * M + j].className = 'cell fertil'}
+            if (bosque[i][j] === fuego){bosque[i][j] = infertil; bosqueDom.children[i * M + j].className = 'cell infertil'}
+        }}
+}
+
 function simular1vez() {
-    
     for (let i = 0; i < N; i++) {
         bosque[i] = new Array(M).fill(infertil);
     }
@@ -80,22 +103,14 @@ function simular1vez() {
                 bosque[i][j] = arbol;
                 bosqueDom.children[i * M + j].className = 'cell arbol';
             } else {
-                bosque[i][j] = infertil;
-                bosqueDom.children[i * M + j].className = 'cell infertil';
+                bosque[i][j] = fertil;
+                bosqueDom.children[i * M + j].className = 'cell fertil';
             }
-        }
-}
-}
-
-function simularQuemada() {
-    bosqueDom = tablero.querySelector('.tablero');
-    for (let i = 0; i < N; i++) {for(let j = 0; j < M; j++) {if(bosque[i][j] === arbol) {continue;}}}
-        for (let i = 0; i < N; i++) {
-            for (let j = 0; j < M; j++) {
-                if(Math.random() * 100 < Q) {
+            if(Math.random() * 100 < Q && bosque[i][j] === arbol) {
                         bosque[i][j] = fuego;
                         bosqueDom.children[i * M + j].className = 'cell fuego';
-                }
             }
-        }   
+        }
+    }
 }
+

@@ -105,7 +105,7 @@ body {
     width: max-content;
 }
 
-.cell {
+.cell ,.infertil{
     aspect-ratio: 1;
     background-color: var(--liquen);
 }
@@ -114,6 +114,9 @@ body {
 }
 .cell.fuego {
     background-color: var(--brasa);
+}
+.cell.fertil {
+    background-color: var(--niebla);
 }
 #panel-accion {
     height: 100%;
