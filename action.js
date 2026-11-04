@@ -65,7 +65,7 @@ function prepararTablero() {
     panelAccion.querySelector('.probabilidad').innerHTML = `<p>Probabilidad de propagación Q: ${Q}%</p><p>Probabilidad de aparición de un árbol P: ${P}%</p>`;
     
     pintarTablero();
-    probabilidad();
+    simular1vez();
 };
 
 function probabilidad() {
@@ -74,18 +74,22 @@ function probabilidad() {
             if (i + 1 < M && bosque[i][j] === fuego && bosque[i+1][j] === arbol ) {
                     bosque[i+1][j] = fuego;
                     bosqueDom.children[(i+1) * M + j].className = 'cell fuego';
+                    return;
             }
             if (i - 1 >= 0 && bosque[i][j] === fuego && bosque[i-1][j] === arbol ) {
                     bosque[i-1][j] = fuego;
                     bosqueDom.children[(i-1) * M + j].className = 'cell fuego';
+                    return;
             }
             if (j + 1 < N && bosque[i][j] === fuego && bosque[i][j+1] === arbol ) {
                     bosque[i][j+1] = fuego;
                     bosqueDom.children[i * M + (j+1)].className = 'cell fuego';
+                    return;
             }
             if (j - 1 >= 0 && bosque[i][j] === fuego && bosque[i][j-1] === arbol ) {
                     bosque[i][j-1] = fuego;
                     bosqueDom.children[i * M + (j-1)].className = 'cell fuego';
+                    return;
             }
             if (bosque[i][j] === infertil){bosque[i][j] = fertil; bosqueDom.children[i * M + j].className = 'cell fertil'}
             if (bosque[i][j] === fuego){bosque[i][j] = infertil; bosqueDom.children[i * M + j].className = 'cell infertil'}

@@ -2,8 +2,9 @@
     --musgo:   #22362b;  
     --helecho: #2f4a3a;  
     --liquen:  #e3ead9;  
-    --niebla:  #9db3a2;  
-    --brasa:   #ee6a1f;  
+    --ceniza: #CDCDCD;  
+    --brasa:   #ee6a1f; 
+    --fertilidad: #608f6a; 
 }
 
 * {
@@ -104,10 +105,15 @@ body {
     grid-template-rows: repeat(var(--n), var(--size));
     width: max-content;
 }
-
-.cell ,.infertil{
+.cell{
     aspect-ratio: 1;
-    background-color: var(--liquen);
+}
+.cell.infertil{
+
+    background-color: var(--ceniza);
+}
+.cell.fertil {
+    background-color: var(--fertilidad);
 }
 .cell.arbol {
     background-color: var(--musgo);
@@ -115,9 +121,7 @@ body {
 .cell.fuego {
     background-color: var(--brasa);
 }
-.cell.fertil {
-    background-color: var(--niebla);
-}
+
 #panel-accion {
     height: 100%;
     width: 90%;
