@@ -26,8 +26,16 @@
             <p>Probabilidad de aparición de un árbol P:</p>
         </div>
         <div class="accion">
-            <button type="submit" id="accion">Siguiente Iteración</button>
+            <button type="submit" id="accion">Siguiente Simulación</button>
             <button type="submit" id="reiniciar">Reiniciar Simulación</button>
+            <select id="velocidad">
+                <option value="100">100 ms</option>
+                <option value="300">300 ms</option>
+                <option value="500" selected>500 ms</option>
+                <option value="1000">1 s</option>
+                <option value="2000">2 s</option>
+            </select>
+            
         </div>
     </div>
     <div id="tablero" class="oculto"></div>

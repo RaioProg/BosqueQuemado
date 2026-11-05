@@ -8,6 +8,8 @@ const tablero = document.getElementById('tablero');
 const panelAccion = document.getElementById('panel-accion');
 const actionBtn = document.getElementById('accion');
 const resetBtn = document.getElementById('reiniciar');
+const stopBtn = document.getElementById('detener');
+const velocidadSelect = document.getElementById('velocidad')
 const infertil = 0;
 const fertil = 1;
 const arbol = 2;
@@ -22,14 +24,30 @@ let P
 let Q
 
 contenedorBoton.addEventListener('click', prepararTablero);
-actionBtn.addEventListener('click', => {}while(){probabilidad};);
+actionBtn.addEventListener('click', function() {
+    const simularPaso = () => {
+        if (hayFuego()) return;
+        probabilidad();
+        setTimeout(probabilidad(), velocidadSelect.value);
+    };
+
+    simularPaso();
+});
 resetBtn.addEventListener('click', simular1vez);
+
+velocidadSelect.addEventListener('change', () => {
+    delay = Number(velocidadSelect.value);
+    return delay;
+})
+
+function hayFuego() {
+    return bosqueDom && Array.from(bosqueDom.children).some((cell) => cell.classList.contains('fertil') && cell.classList.contains('infertil')) ;
+}
 
 function pintarTablero() {
 
     tablero.innerHTML = '';
     let tablaDom = document.createElement('div');
-
     tablaDom.className = 'tablero';
     tablaDom.style.setProperty('--m', M);
     tablaDom.style.setProperty('--n', N);
@@ -67,28 +85,31 @@ function prepararTablero() {
     pintarTablero();
     simular1vez();
 };
+function Caracteristicas(i,j) {
+    bosqueDom.children[i*M+j].className = 'cell fuego';
+}
 
 function probabilidad() {
     for (let i = 0; i < N; i++) {
         for (let j = 0; j < M; j++) {
-            if (i + 1 < M && bosque[i][j] === fuego && bosque[i+1][j] === arbol ) {
-                    bosque[i+1][j] = fuego;
-                    bosqueDom.children[(i+1) * M + j].className = 'cell fuego';
+            if (i + 1 < N && bosque[i][j] === fuego && bosque[i + 1][j] === arbol ) {
+                    bosque[i + 1][j] = fuego;
+                    Caracteristicas(i+1,j);
                     return;
             }
-            if (i - 1 >= 0 && bosque[i][j] === fuego && bosque[i-1][j] === arbol ) {
-                    bosque[i-1][j] = fuego;
-                    bosqueDom.children[(i-1) * M + j].className = 'cell fuego';
+            if (i - 1 >= 0 && bosque[i][j] === fuego && bosque[i - 1][j] === arbol ) {
+                    bosque[i - 1][j] = fuego;
+                    Caracteristicas(i-1,j);
                     return;
             }
-            if (j + 1 < N && bosque[i][j] === fuego && bosque[i][j+1] === arbol ) {
-                    bosque[i][j+1] = fuego;
-                    bosqueDom.children[i * M + (j+1)].className = 'cell fuego';
+            if (j + 1 < M && bosque[i][j] === fuego && bosque[i][j + 1] === arbol ) {
+                    bosque[i][j + 1] = fuego;
+                    Caracteristicas(i,j+1);
                     return;
             }
-            if (j - 1 >= 0 && bosque[i][j] === fuego && bosque[i][j-1] === arbol ) {
-                    bosque[i][j-1] = fuego;
-                    bosqueDom.children[i * M + (j-1)].className = 'cell fuego';
+            if (j - 1 >= 0 && bosque[i][j] === fuego && bosque[i][j - 1] === arbol ) {
+                    bosque[i][j - 1] = fuego;
+                    Caracteristicas(i,j-1);
                     return;
             }
             if (bosque[i][j] === infertil){bosque[i][j] = fertil; bosqueDom.children[i * M + j].className = 'cell fertil'}

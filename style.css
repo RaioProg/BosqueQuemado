@@ -4,7 +4,7 @@
     --liquen:  #e3ead9;  
     --ceniza: #CDCDCD;  
     --brasa:   #ee6a1f; 
-    --fertilidad: #608f6a; 
+    --fertilidad: #804d14; 
 }
 
 * {
@@ -75,7 +75,7 @@ body {
 .config2 input:nth-of-type(4) { grid-area: 4 / 2; }
 
 
-.config2 button, #accion, #reiniciar {
+.config2 button, .accion button{
     grid-area: 5 / 1 / 6 / 3;
     margin-top: 26px;
     padding: 14px;
