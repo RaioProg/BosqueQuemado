@@ -22,7 +22,7 @@ let P
 let Q
 
 contenedorBoton.addEventListener('click', prepararTablero);
-actionBtn.addEventListener('click', probabilidad);
+actionBtn.addEventListener('click', => {}while(){probabilidad};);
 resetBtn.addEventListener('click', simular1vez);
 
 function pintarTablero() {
