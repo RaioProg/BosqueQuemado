@@ -35,10 +35,28 @@ actionBtn.addEventListener('click', function() {
 });
 resetBtn.addEventListener('click', simular1vez);
 
-velocidadSelect.addEventListener('change', () => {
-    delay = Number(velocidadSelect.value);
-    return delay;
-})
+function iniciarIntervalo() {
+    clearInterval(intervalo);
+    const ms = 1000 / Number(velocidadInput.value);  
+    intervalo = setInterval(probabilidad, ms);
+    autoBtn.textContent = '⏸ Pausar';
+}
+
+function detenerIntervalo() {
+    clearInterval(intervalo);
+    intervalo = null;
+    autoBtn.textContent = '▶ Reproducir';
+}
+
+function alternarAuto() {
+    if (intervalo === null) iniciarIntervalo();
+    else detenerIntervalo();
+}
+
+function cambiarVelocidad() {
+    velocidadValor.textContent = velocidadInput.value;
+    if (intervalo !== null) iniciarIntervalo();  
+}
 
 function hayFuego() {
     return bosqueDom && Array.from(bosqueDom.children).some((cell) => cell.classList.contains('fertil') && cell.classList.contains('infertil')) ;
